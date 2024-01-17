@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Edit Profile{% endblock %}
+
+{% block content %}
+  <div class="edit-profile-form">
+    <h2>Edit User Profile</h2>
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <label for="display-photo">Display Photo:</label>
+      <input type="file" id="display-photo" name="display_photo">
+      <label for="gender">Gender:</label>
+      <select id="gender" name="gender">
+        <option value="" {% if not form.gender.value %}selected{% endif %}>Select</option>
+        <option value="Male" {% if form.gender.value == 'Male' %}selected{% endif %}>Male</option>
+        <option value="Female" {% if form.gender.value == 'Female' %}selected{% endif %}>Female</option>
+        <option value="Other" {% if form.gender.value == 'Other' %}selected{% endif %}>Other</option>
+      </select>
+      <label for="contact-number">Contact Number:</label>
+      <input type="text" id="contact-number" name="contact_number" value="{{ form.contact_number.value }}">
+      <button type="submit">Save Changes</button>
+    </form>
+  </div>
+{% endblock %}

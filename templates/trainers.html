@@ -1,0 +1,78 @@
+
+{% extends "base.html" %}
+{%load static%}
+{% block title %}Trainers{% endblock %}
+
+{% block content %}
+
+    <section class="section" id="trainers">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 offset-lg-3">
+                    <div class="section-heading">
+                        <h2>MASHLE <em>Trainers</em></h2>
+                        <img src="{% static 'images/line-dec.png' %}" alt="">
+                        <p>Meet our expert trainers who are dedicated to guiding you on your fitness journey.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="trainer-item">
+                        <div class="image-thumb">
+                            <img src="{% static 'images/first-trainer.jpg' %}" alt="">
+                        </div>
+                        <div class="down-content">
+                            <span>Beginner Class Trainer</span>
+                            <h4>John Anthony Buena</h4>
+                            <p>John Anthony Buena is our dedicated instructor for the Beginner Class. With a passion for helping newcomers kickstart their fitness journey, he brings patience and expertise to ensure you build a strong foundation.</p>
+                            <ul class="social-icons">
+                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                <li><a href="#"><i class="fa fa-behance"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="trainer-item">
+                        <div class="image-thumb">
+                            <img src="{% static 'images/second-trainer.jpg' %}" alt="">
+                        </div>
+                        <div class="down-content">
+                            <span>Intermediate Class Trainer</span>
+                            <h4>Ariel Joshua Remoroza</h4>
+                            <p>Meet Ariel Joshua Remoroza, the instructor for our Intermediate Class. With years of experience, he'll help you take your fitness to the next level, combining challenging workouts with a supportive approach.                            </p>
+                            <ul class="social-icons">
+                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                <li><a href="#"><i class="fa fa-behance"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="trainer-item">
+                        <div class="image-thumb">
+                            <img src="{% static 'images/third-trainer.jpg' %}" alt="">
+                        </div>
+                        <div class="down-content">
+                            <span>Master Class Trainer</span>
+                            <h4>Hanz Archer Dalubatan</h4>
+                            <p>For those looking to achieve peak performance, Hanz Archer Dalubatan leads our Master Class. With a background in high-performance training, he'll guide you towards your fitness pinnacle.</p>
+                            <ul class="social-icons">
+                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                <li><a href="#"><i class="fa fa-behance"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

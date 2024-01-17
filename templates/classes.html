@@ -1,0 +1,103 @@
+
+{% extends "base.html" %}
+{%load static%}
+{% block title %}Classes{% endblock %}
+
+{% block content %}
+
+    <section class="section" id="our-classes">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 offset-lg-3">
+                    <div class="section-heading">
+                        <h2>MASHLE <em>Classes</em></h2>
+                        <img src="{% static 'images/line-dec.png' %}" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="row" id="tabs">
+              <div class="col-lg-4">
+                <ul>
+                  <li><a href='#tabs-1'><img src="{% static 'images/tabs-first-icon.png' %}" alt="">Beginner Class</a></li>
+                  <li><a href='#tabs-2'><img src="{% static 'images/tabs-first-icon.png' %}" alt="">Intermediate Class</a></a></li>
+                  <li><a href='#tabs-3'><img src="{% static 'images/tabs-first-icon.png' %}" alt="">Master Class</a></a></li>
+                </ul>
+              </div>
+              <div class="col-lg-8">
+                <section class='tabs-content'>
+                  <article id='tabs-1'>
+                    <img src="{% static 'images/training-image-01.jpg' %}" alt="First Class">
+                    <h4>Novice Fitness Forge</h4>
+                    <p>Join the Novice Fitness Forge and embark on a journey to sculpt your body and boost your stamina. This beginner class is designed for those just starting their fitness adventure. Our expert trainers will guide you through fundamental exercises and nutritional tips to kickstart your transformation.</p>
+                    <h5>Trainer: John Anthony Buena</h5>
+                    <div class="main-button">
+                        <a href="classes" onclick="registerClass('Novice Fitness Forge')">Enroll Now</a>
+                    </div>
+                </article>
+                
+                <article id='tabs-2'>
+                    <img src="{% static 'images/training-image-02.jpg' %}" alt="Second Training">
+                    <h4>Proactive Performance Prodigy</h4>
+                    <p>Elevate your workout game with our Intermediate class, Proactive Performance Prodigy. This class is perfect for those who have some fitness experience and are ready to take it to the next level. Develop strength, agility, and finesse under the guidance of our dedicated trainers.</p>
+                    <h5>Trainer: Ariel Joshua Remoroza</h5>
+                    <div class="main-button">
+                        <a href="classes" onclick="registerClass('Proactive Performance Prodigy')">Enroll Now</a>
+                    </div>
+                </article>
+                
+                <article id='tabs-3'>
+                    <img src="{% static 'images/training-image-03.jpg' %}" alt="Third Class">
+                    <h4>Elite Fitness Fusion</h4>
+                    <p>Welcome to Elite Fitness Fusion, the master class for those who have honed their skills and are ready to achieve peak physical performance. This class combines advanced workouts, sports conditioning, and personalized nutrition plans to sculpt the ultimate version of yourself.</p>
+                    <h5>Trainer: Hanz Archer Dalubatan</h5>
+                    <div class="main-button">
+                        <a href="classes" onclick="registerClass('Elite Fitness Fusion')">Enroll Now</a>
+                    </div>
+                </article>
+                </section>
+              </div>
+            </div>
+        </div>
+    </section>
+
+
+    <script>
+      
+      function registerClass(className) {
+          const confirmRegistration = confirm(`Do you want to enroll for ${className}?`);
+          
+          if (confirmRegistration) {
+              fetch('/update_classes/', {
+                  method: 'POST',
+                  headers: {
+                      'Content-Type': 'application/json',
+                      'X-CSRFToken': getCSRFToken(),
+                  },
+                  body: JSON.stringify({ class_name: className }),
+              })
+              .then(response => {
+                  if (response.ok) {
+                      alert(`You have successfully enroll for ${className}!`);
+                      window.location.reload(); // Refresh the page or update UI as needed
+                  } else {
+                      alert('Failed to enroll. Please try again.');
+                  }
+              })
+              .catch(error => {
+                  console.error('Error:', error);
+              });
+          }
+      }
+
+      function getCSRFToken() {
+          const csrfTokenCookie = document.cookie.split(';').find(cookie => cookie.trim().startsWith('csrftoken='));
+          if (csrfTokenCookie) {
+              return csrfTokenCookie.split('=')[1];
+          }
+          return '';
+      }
+
+    </script>
+
+{% endblock %}
+

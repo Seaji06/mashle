@@ -1,0 +1,88 @@
+
+{% extends "base.html" %}
+{%load static%}
+{% block title %}About{% endblock %}
+
+{% block content %}
+
+<style>
+    #desc{
+        text-align: justify;
+        margin-left: 1in;
+        margin-right: 1in;
+        margin-top: .5in;
+    }
+</style>
+
+<section class="section" id="contact-us">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-xs-12">
+                <div id="">
+                    <img src="{% static 'images/about.jpg' %}" alt=""width="100%" height="600px" frameborder="0" style="border:0">
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-xs-12">
+                <div class="section-heading">
+                    <h2>About <em>MASHLE</em></h2>
+                    <img src="{% static 'images/line-dec.png' %}" alt="">
+                    <p id="desc">
+                        Welcome to MASHLE, where we embark on a journey to make you feel like a magician while sculpting your muscles. We're more than just a gym; we're a tight-knit community dedicated to assisting individuals, regardless of their fitness levels, in achieving their health and wellness objectives. Our cutting-edge facilities, dedicated trainers, and a wide variety of classes combine to create an environment where motivation, progress, and transformation flourish. Discover the enchanting tale of MASHLE, our mission to empower you, and what sets us apart in the realm of fitness. Join us on the path to becoming a healthier, stronger, and happier version of yourself.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<br><br><br><br>
+<section class="section" id="trainers">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3">
+                <div class="section-heading">
+                    <h2>Our <em>team</em></h2>
+                    <img src="{% static 'images/line-dec.png' %}" alt="">
+                    <p>Meet our developers who make this website came to life.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="trainer-item">
+                    <div class="image-thumb">
+                        <img src="{% static 'images/seaji.jpg' %}" alt="">
+                    </div>
+                    <div class="down-content">
+                        <span></span>
+                        <h4>Cedric John S. Lim</h4>
+                        <ul class="social-icons">
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                            <li><a href="#"><i class="fa fa-behance"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="trainer-item">
+                    <div class="image-thumb">
+                        <img src="{% static 'images/chymbeh.jpg' %}" alt="">
+                    </div>
+                    <div class="down-content">
+                        <span></span>
+                        <h4>Chymbeh Lood</h4>
+                        <ul class="social-icons">
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                            <li><a href="#"><i class="fa fa-behance"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

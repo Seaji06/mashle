@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}My Profile{% endblock %}
+
+{% block content %}
+<style>
+  .user-profile {
+    background: #fff;
+    margin: 70px auto 70px auto;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  
+  .user-profile h2 {
+    font-size: 24px;
+    text-transform: uppercase;
+    font-weight: 800;
+    color: #232d39;
+    letter-spacing: 0.5px;
+    margin-top: 0;
+    margin-bottom: 20px;
+  }
+  
+  .user-profile label {
+    font-size: 16px;
+    color: #7a7a7a;
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  .user-profile input[type="text"],
+  .user-profile input[type="password"],
+  .user-profile input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+  
+  .user-profile button {
+    background-color: #ed563b;
+    color: #fff;
+    text-align: center;
+    font-weight: 400;
+    text-transform: uppercase;
+    font-size: 15px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .user-profile button:hover {
+    background-color: #f9735b;
+  }
+  
+  .user-profile .form-link {
+    font-size: 13px;
+    color: #ed563b;
+    text-transform: uppercase;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+  }
+  
+  .user-profile .profile-picture img {
+  max-width: 300px;
+  height: 300px;
+  border-radius: 50%; /* Makes the image circular */
+  }
+  
+  .user-profile .profile-details p {
+    margin: 5px 0;
+  }
+  
+  .user-profile .profile-details strong {
+    font-weight: bold;
+  }
+</style>
+  <div class="user-profile">
+    <h2>My Profile</h2>
+    <div class="profile-picture">
+      <img src="{{ user_profile.display_photo.url }}" alt="Profile Picture">
+    </div>
+    <div class="profile-details">
+      <p><strong>Full Name:</strong> {{ user.first_name }} {{ user.last_name }}</p>
+      <p><strong>Email:</strong> {{ user.email }}</p>
+      <p><strong>Gender:</strong> {{ user_profile.gender }}</p>
+      <p><strong>Birthday:</strong> {{ user_profile.birthday }}</p>
+      <p><strong>Contact Number:</strong> {{ user_profile.contact_number }}</p>
+      <p><strong>Membership:</strong> {{ user_profile.membership }}</p>
+      <div class="main-button">
+        <a href="{% url 'edit_profile' %}">Edit Profile</a>
+      </div>
+    </div>
+  </div>
+{% endblock %}

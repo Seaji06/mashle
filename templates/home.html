@@ -1,0 +1,28 @@
+
+{% extends "base.html" %}
+{%load static%}
+{% block title %}MASHLE{% endblock %}
+
+{% block content %}
+
+    <div class="main-banner" id="top">
+        <video autoplay muted loop id="bg-video">
+            <source src="{% static 'images/gym-video.mp4' %}" type="video/mp4" />
+        </video>
+
+        <div class="video-overlay header-text">
+            <div class="caption">
+                <h6>work harder, get stronger</h6>
+                <h2>easy with our <em>gym</em></h2>
+                <div class="main-button">
+                    {% if user.is_authenticated %}
+                    <a href="classes">Classes</a>
+                    {% else %}
+                    <a href="register">Become a member</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>  
+    </div>
+
+{% endblock %}

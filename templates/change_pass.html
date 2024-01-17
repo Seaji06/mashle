@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Change Password{% endblock %}
+
+{% block content %}
+  <div class="edit-profile-form">
+    <h2>Change Password</h2>
+    <form method="post">
+      {% csrf_token %}
+      <label for="new-password">New Password:</label>
+      <input type="password" id="new-password" name="new-password" placeholder="Create a password" required>
+      <label for="confirm-password">Confirm New Password:</label>
+      <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm your password" required>
+      <button type="submit">Change Password</button>
+    </form>
+        {% if messages %}
+        <ul class="errorlist">
+            {% for message in messages %}
+                <li id="error">{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+  </div>
+{% endblock %}
